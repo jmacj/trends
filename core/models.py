@@ -21,7 +21,7 @@ class Delegates(BaseModel):
 	is_student = BooleanField()
 	school_or_company = CharField(max_length=255)
 	course_or_position = CharField(max_length=255)
-	created_at = TimsestampField(constraints=[SQL('NOT NULL DEFAULT CURRENT_TIMESTAMP')])
+	created_at = DateTimeField(default=datetime.datetime.now)
 
 def initialize_db():
 	db.connect()
