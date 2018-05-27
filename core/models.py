@@ -1,5 +1,6 @@
 from peewee import *
 from core import config
+import datetime
 
 db = MySQLDatabase(
 	config.DB_NAME,
