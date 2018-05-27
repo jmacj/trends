@@ -1,12 +1,9 @@
+import os
 from peewee import *
+from playhouse.db_url import connect
 from core import config
 
-db = MySQLDatabase(
-	config.DB_NAME,
-	user=config.DB_USER,
-	password=config.DB_PASSWORD,
-	host=config.DB_HOST
-)
+db = connect(os.getenv('DATABASE_URL'))
 
 class BaseModel(Model):
 	class Meta:
