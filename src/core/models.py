@@ -1,9 +1,12 @@
-import os
 from peewee import *
-from playhouse.db_url import connect
 from core import config
 
-db = connect(os.getenv('DATABASE_URL'))
+db = MySQLDatabase(
+	config.DB_NAME,
+	user=config.DB_USER,
+	password=config.DB_PASSWORD,
+	host=config.DB_HOST
+)
 
 class BaseModel(Model):
 	class Meta:
@@ -13,7 +16,7 @@ class Delegates(BaseModel):
 	id = PrimaryKeyField(index=True)
 	first_name = CharField(max_length=50)
 	last_name = CharField(max_length=50)
-	email_address = CharField()
+	email = CharField()
 	contact_number = CharField()
 	is_student = BooleanField()
 	school_or_company = CharField(max_length=255)
