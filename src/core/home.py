@@ -8,7 +8,8 @@ app = Blueprint("home", __name__)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-	return render_template("create.html")
+	print(config.DB_HOST)
+	return redirect('/register')
 
 @app.route("/register", methods=["GET"])
 def register():
