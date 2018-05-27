@@ -1,0 +1,8 @@
+DEBUG=True
+SECRET_KEY="THIS IS SECRET"
+
+# DB CONFIG
+DB_NAME="trends"
+DB_USER="root"
+DB_PASSWORD=""
+DB_HOST="localhost"

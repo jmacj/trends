@@ -1,0 +1,9 @@
+{% macro render_field(field) %}
+    <div class="input-field">
+        <label for="{{ field.id }}">{{ field.label }}</label>
+        {{ field(class_="validate", required="true") }}
+        {% for error in field.errors %}
+            <small class="form-text text-danger">{{ error }}</small>
+        {% endfor %}
+    </div>
+{% endmacro %}

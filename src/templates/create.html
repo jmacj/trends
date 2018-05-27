@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% from '_formhelpers.html' import render_field %}
+
+{% block title %}{% endblock %}
+{% block content %}
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-12 col-md-6 mt-5">
+			<div class="card">
+                <div class="card-content">
+    				<form id="createDelegateForm" action="{{ url_for('home.create') }}" method="POST">
+                        {{ form.csrf_token }}
+                        
+                        <p class="card-text font-weight-bold">Personal Information</p>
+                        {{ render_field(form.first_name) }}
+                        {{ render_field(form.last_name) }}
+                        <div class="input-field">
+                            <!-- <label for="is_student">Student or Professional</label> -->
+                            <p>
+                              <label>
+                                <input name="is_student" type="radio" value="student" checked />
+                                <span>Student</span>
+                              </label>
+                            </p>
+                            <p>
+                              <label>
+                                <input name="is_student" value="professional" type="radio" />
+                                <span>Professional</span>
+                              </label>
+                            </p>
+
+                            {% for error in errors %}
+                                <small class="form-text text-danger">{{ error }}</small>
+                            {% endfor %}
+                        </div>
+
+                        {{ render_field(form.school_or_company) }}
+                        {{ render_field(form.course_or_position) }}
+                        
+                        <p class="card-text font-weight-bold">Contact Details</p>
+                        {{ render_field(form.email_address) }}
+                        {{ render_field(form.contact_number) }}
+
+    				</form>
+                </div>
+
+                <div class="card-action">
+    				<button class="btn waves-effect waves-light" type="submit" form="createDelegateForm">Register
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block css %}
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

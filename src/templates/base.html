@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>{% block title %}Test{% endblock %}</title>
+
+	<link rel="stylesheet" href="{{ url_for("static", filename="css/materialize.css") }}" />
+	<link rel="stylesheet" href="{{ url_for("static", filename="css/materialize.min.css") }}" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	
+	{% block styles %}{% endblock %}
+</head>
+<body>
+	{% block content %}{% endblock %}
+
+	<script type="text/javascript" src="{{ url_for("static", filename="js/materialize.js") }}"></script>
+	<script type="text/javascript" src="{{ url_for("static", filename="js/materialize.min.css") }}>"</script>
+	<script type="text/javascript" src="{{ url_for("static", filename="js/custom.js") }}"></script>
+
+	{% block scripts %}{% endblock %}
+</body>
+</html>
