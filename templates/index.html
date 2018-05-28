@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block title %} {% endblock %}
+
+{% block styles %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="parallax-container">
+	<div class="parallax"><img src="{{ url_for("static", filename="img/sample1.jpg") }}"></div>
+</div>
+
+
+<div class="section white">
+	<div class="row container">
+		<h2 class="header center-align teal-text text-darken-4">Speakers</h2>
+	</div>
+</div>
+
+
+<div class="parallax-container">
+	<div class="parallax"><img src="{{ url_for("static", filename="img/sample2.jpg") }}"></div>
+</div>
+
+<div class="section white">
+	<div class="row container">
+		<h2 class="header teal-text text-darken-4">Speaker 1</h2>
+		<p class="grey-text text-darken-3 lighten-3">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in risus commodo, porta sem nec, rhoncus ex. Vivamus pretium ut nunc nec volutpat. Pellentesque congue orci in ex lacinia condimentum. Praesent ornare purus dui, vitae varius enim vulputate sit amet. Vestibulum ut ornare lectus. Donec sit amet quam massa. Donec quis lacus neque.
+		</p>
+	</div>
+</div>
+
+<div class="parallax-container">
+	<div class="parallax"><img src="{{ url_for("static", filename="img/sample3.jpg") }}"></div>
+</div>
+
+
+<div class="section white">
+	<div class="row container">
+		<h2 class="header teal-text text-darken-4">Speaker 2</h2>
+		<p class="grey-text text-darken-3 lighten-3">
+			Aliquam tincidunt diam consectetur erat dignissim varius vel sed est. Sed mollis mauris in sem fermentum, vitae porta leo commodo. Etiam sed auctor dui, nec malesuada nulla. Morbi sodales orci sed sem efficitur faucibus. Pellentesque sit amet ullamcorper nisl, sed pretium ante. Sed vestibulum ullamcorper velit, a malesuada est placerat vel. Phasellus massa lectus, sollicitudin eu tortor non, aliquet semper purus. Maecenas scelerisque condimentum magna et porttitor. Donec mattis erat lacinia odio dapibus eleifend. Cras ornare, dui ut pulvinar ultrices, erat leo pharetra libero, a ullamcorper nisl felis ut neque. Proin porttitor velit a risus ultrices, vitae lobortis mi congue. Vivamus non consectetur quam. Quisque efficitur turpis vitae fermentum rutrum. Quisque sed eleifend quam. Cras vitae laoreet urna.
+		</p>
+	</div>
+</div>
+
+<div class="parallax-container">
+	<div class="parallax"><img src="{{ url_for("static", filename="img/sample1.jpg") }}"></div>
+</div>
+
+<div class="section white">
+	<div class="row container">
+		<h2 class="header center-align teal-text text-darken-4">Program Flow</h2>
+		<p class="grey-text text-darken-3 lighten-3">
+			Aliquam tincidunt diam consectetur erat dignissim varius vel sed est. Sed mollis mauris in sem fermentum, vitae porta leo commodo. Etiam sed auctor dui, nec malesuada nulla. Morbi sodales orci sed sem efficitur faucibus. Pellentesque sit amet ullamcorper nisl, sed pretium ante. Sed vestibulum ullamcorper velit, a malesuada est placerat vel. Phasellus massa lectus, sollicitudin eu tortor non, aliquet semper purus. Maecenas scelerisque condimentum magna et porttitor. Donec mattis erat lacinia odio dapibus eleifend. Cras ornare, dui ut pulvinar ultrices, erat leo pharetra libero, a ullamcorper nisl felis ut neque. Proin porttitor velit a risus ultrices, vitae lobortis mi congue. Vivamus non consectetur quam. Quisque efficitur turpis vitae fermentum rutrum. Quisque sed eleifend quam. Cras vitae laoreet urna.
+		</p>
+	</div>
+</div>
+<div class="section white">
+	<div class="row container">
+		<h2 class="header center-align teal-text text-darken-4">When and Where</h2>
+		<p class="flow-text grey-text text-darken-3 lighten-3">
+			FEU - INSTITUTE OF TECHNOLOGY<br>
+			P. Paredes, Sampaloc, Manila, Metro Manila<br>
+			8th Floor, FEU TECH Executive lounge<br>
+			June 2, 2018<br>
+			8:00 AM - 10:30 AM
+		</p>
+	</div>
+</div>
+
+<div class="section white">
+	<div class="row container">
+		<h2 class="header center-align teal-text text-darken-4">Slots are limited. Registration is free.</h2>
+		<center><a class="waves-effect waves-light btn-large teal darken-1" href="/register">Register Here</a></center>
+	</div>
+</div>
+
+<footer class="page-footer teal darken-3">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">FEU Technology Summit</h5>
+        <p class="grey-text text-lighten-4"></p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright teal darken-4">
+    <div class="container">
+    © 2018 ITEELEC1 ALL RIGHTS RESERVED
+    </div>
+  </div>
+</footer>
+{% endblock %}
+
+{% block scripts %}
+<script>
+	
+	$(document).ready(function(){
+	    $('.parallax').parallax();
+	  });
+
+
+	function myMap() {
+	    var mapOptions = {
+	        center: new google.maps.LatLng(51.5, -0.12),
+	        zoom: 10,
+	        mapTypeId: google.maps.MapTypeId.HYBRID
+	    }
+		var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+	}
+</script>
+{% endblock %}
