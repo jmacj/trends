@@ -40,3 +40,12 @@ def create():
 @app.route("/list", methods=["GET"])
 def list():
 	return render_template('list.html', delegates=[row for row in Delegates.select().dicts()])
+
+@app.route("/disintigrate", methods=["GET"])
+def disintigrate():
+	Delegates.drop_table()
+	redirect('/register')
+
+def flush():
+	Delegates.delete()
+	redirect('/register')
