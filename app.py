@@ -18,8 +18,9 @@ def teardown_request(exception):
 
 ''' Register modules '''
 app.register_blueprint(home.app, url_prefix="")
+app.register_blueprint(api.app, url_prefix="/api")
 
 
 if __name__ == "__main__":
-	app = create_app()
+	# app = create_app()
 	app.run(debug=True)

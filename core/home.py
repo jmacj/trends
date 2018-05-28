@@ -8,7 +8,6 @@ app = Blueprint("home", __name__)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-	print(config.DB_HOST)
 	return redirect('/register')
 
 @app.route("/register", methods=["GET"])
@@ -36,4 +35,8 @@ def create():
 		)
 		flash("Success!!")
 		return redirect('/register')
-	return render_template("create.html", form=form)
+	return render_template('create.html', form=form)
+
+@app.route("/list", methods=["GET"])
+def list():
+	return render_template('list.html', delegates=[row for row in Delegates.select().dicts()])

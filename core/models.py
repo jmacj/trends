@@ -17,7 +17,7 @@ class Delegates(BaseModel):
 	id = PrimaryKeyField(index=True)
 	first_name = CharField(max_length=50)
 	last_name = CharField(max_length=50)
-	email = CharField()
+	email_address = CharField()
 	contact_number = CharField()
 	is_student = BooleanField()
 	school_or_company = CharField(max_length=255)

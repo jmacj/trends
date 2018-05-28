@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %} 
+<div class="container">
+    <div class="card my-3">
+        <div class="card-content">
+            <div class="card-title h4 font-weight-bold">Delegates</div>
+            <table id="delegatesTable" class="table"></table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/r-2.2.1/sl-1.2.5/datatables.min.css"/>
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.material.min.css"/>
+{% endblock %}
+
+{% block scripts %}
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/r-2.2.1/sl-1.2.5/datatables.min.js"/>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"> </script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.material.min.js"> </script>
+    
+<script>
+    $(function() {
+        var table =  $('#delegatesTable').DataTable({
+            ajax: {
+                url: '/api/delegates',
+            dataSrc: ''
+            },
+            select: true,
+            columns: [
+                {title: 'ID', data: 'id'},
+                {title: 'First Name', data: 'first_name'},
+                {title: 'Last Name', data: 'last_name'},
+                {title: 'Is Student', data: 'is_student'},
+                {title: 'School/Company', data: 'school_or_company'},
+                {title: 'Course/Position', data: 'course_or_position'},
+                {title: 'Email Address', data: 'email_address'},
+                {title: 'Contact Number', data: 'contact_number'}
+            ]
+        });
+
+        $('#delegatesTable tbody').on('click', 'tr', function() {
+            if ( $(this).hasClass('selected') ) {
+                $(this).removeClass('selected');
+            } else {
+                table.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+            }
+        });
+    });
+</script>
+{% endblock %}

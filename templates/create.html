@@ -11,7 +11,7 @@
     				<form id="createDelegateForm" action="{{ url_for('home.create') }}" method="POST">
                         {{ form.csrf_token }}
                         
-                        <p class="card-text font-weight-bold">Personal Information</p>
+                        <p class="card-title">Personal Information</p>
                         {{ render_field(form.first_name) }}
                         {{ render_field(form.last_name) }}
                         <div class="input-field">
@@ -30,14 +30,14 @@
                             </p>
 
                             {% for error in errors %}
-                                <small class="form-text text-danger">{{ error }}</small>
+                                <small class="form-text">{{ error }}</small>
                             {% endfor %}
                         </div>
 
                         {{ render_field(form.school_or_company) }}
                         {{ render_field(form.course_or_position) }}
                         
-                        <p class="card-text font-weight-bold">Contact Details</p>
+                        <p class="card-title">Contact Details</p>
                         {{ render_field(form.email_address) }}
                         {{ render_field(form.contact_number) }}
 
@@ -45,9 +45,12 @@
                 </div>
 
                 <div class="card-action">
-    				<button class="btn waves-effect waves-light" type="submit" form="createDelegateForm">Register
-                        <i class="material-icons right">send</i>
-                    </button>
+                    <div class="input-field">
+        				<button class="btn waves-effect waves-light" type="submit" form="createDelegateForm">Register
+                            <i class="material-icons right">send</i>
+                        </button>
+                        <span class="helper-text">Once you register, make sure that you will attend the event. You won't be allowed to attend the succeding seminars once you don't show up.</span>
+                    </div>
                 </div>
 			</div>
 		</div>
@@ -55,7 +58,7 @@
 </div>
 {% endblock %}
 
-{% block css %}
+{% block styles %}
 {% endblock %}
 
 {% block scripts %}
