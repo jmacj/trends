@@ -41,11 +41,12 @@ def create():
 def list():
 	return render_template('list.html', delegates=[row for row in Delegates.select().dicts()])
 
-@app.route("/disintigrate", methods=["GET"])
-def disintigrate():
+@app.route("/disintegrate", methods=["GET"])
+def disintegrate():
 	Delegates.drop_table()
-	redirect('/register')
+	return redirect('/register')
 
+@app.route("/flush", methods=["GET"])
 def flush():
 	Delegates.delete()
-	redirect('/register')
+	return redirect('/register')
