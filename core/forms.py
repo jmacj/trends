@@ -13,3 +13,16 @@ class CreateDelegateForm(FlaskForm):
 	is_student = RadioField('Student or Professional', [Required()], choices=[('student', 'Student'), ('professional', 'Professional')])
 	school_or_company = StringField('School/Company', [Required()])
 	course_or_position = StringField('Course/Position', [Required()])
+
+	# def validate_first_name(form, field):
+	# 	if field.data :
+	# 		raise ValidationError("Enter a valid name")
+
+	# def validate_last_name(form, field):
+	# 	if field.data :
+	# 		raise ValidationError("Enter a valid name")
+
+	# def validate_contact_number(form, field): 
+	# 	if field.data :
+	# 		raise ValidationError("Enter a valid contact number")
+

@@ -6,7 +6,7 @@
 <div class="container">
 	<div class="row justify-content-center">
 		<div class="col-12 col-md-6 mt-5">
-			<div class="card">
+			<div class="card valign">
                 <div class="card-content">
     				<form id="createDelegateForm" action="{{ url_for('home.create') }}" method="POST">
                         {{ form.csrf_token }}
@@ -24,16 +24,12 @@
                             </p>
                             <p>
                               <label>
-                                <input name="is_student" value="professional" type="radio" />
+                                <input name="is_student" type="radio" value="professional" />
                                 <span>Professional</span>
                               </label>
                             </p>
-
-                            {% for error in errors %}
-                                <small class="form-text">{{ error }}</small>
-                            {% endfor %}
                         </div>
-
+                        
                         {{ render_field(form.school_or_company) }}
                         {{ render_field(form.course_or_position) }}
                         

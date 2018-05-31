@@ -1,12 +1,12 @@
 {% macro render_field(field) %}
     <div class="input-field">
-        {{ field(class_="validate", required="true") }}
+        {{ field(class_="validate" , required="true") }}
         <label for="{{ field.id }}">{{ field.label }}</label>
         {% if field.id=="email_address": %}
         	<span class="helper-text">E-Certificates will be provided through your email address</span>
         {% endif %}
         {% for error in field.errors %}
-            <small class="form-text text-danger">{{ error }}</small>
+            <span class="helper-text red-text">{{ error }}</small>
         {% endfor %}
     </div>
 {% endmacro %}
