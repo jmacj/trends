@@ -1,4 +1,5 @@
 from flask import Blueprint, flash, redirect, render_template, request
+from markupsafe import escape
 
 from core.models import Delegates
 from core.forms import CreateDelegateForm
@@ -6,16 +7,17 @@ from core import config
 
 app = Blueprint("home", __name__)
 
-@app.route("/", methods=["GET", "POST"])
-def index():
-	return render_template('index.html')
-
 @app.route("/register", methods=["GET"])
+def index():
+	return redirect('/')
+	# return render_template('index.html')
+
+@app.route("/", methods=["GET"])
 def register():
 	form = CreateDelegateForm()
 	return render_template("create.html", form=form)
 
-@app.route("/register", methods=["POST"])
+@app.route("/", methods=["POST"])
 def create():
 	form = CreateDelegateForm()
 	if form.validate_on_submit():
@@ -25,16 +27,16 @@ def create():
 		else:
 			is_student = False
 		Delegates.create(
-			first_name=request.form.get('first_name'),
-			last_name=request.form.get('last_name'),
-			email_address=request.form.get('email_address'),
-			contact_number=request.form.get('contact_number'),
+			first_name=escape(request.form.get('first_name')),
+			last_name=escape(request.form.get('last_name')),
+			email_address=escape(request.form.get('email_address')),
+			contact_number=escape(request.form.get('contact_number')),
 			is_student=is_student,
-			school_or_company=request.form.get('school_or_company'),
-			course_or_position=request.form.get('course_or_position')
+			school_or_company=escape(request.form.get('school_or_company')),
+			course_or_position=escape(request.form.get('course_or_position'))
 		)
 		flash("Success!!")
-		return redirect('/register')
+		return render_template('success.html')
 	return render_template('create.html', form=form)
 
 @app.route("/list", methods=["GET"])
@@ -44,9 +46,9 @@ def list():
 @app.route("/disintegrate", methods=["GET"])
 def disintegrate():
 	Delegates.drop_table()
-	return redirect('/register')
+	return redirect('/')
 
 @app.route("/flush", methods=["GET"])
 def flush():
 	Delegates.delete()
-	return redirect('/register')
+	return redirect('/')

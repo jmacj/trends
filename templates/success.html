@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock %}
+{% block content %}
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-12 col-md-6 mt-5">
+			<div class="card valign">
+                <div class="card-content">
+                    <div class="row container">
+        				<h4 class="header center-align teal-text text-darken-4">Registration Successful</h4>
+                        <p class="grey-text text-darken-3 lighten-3">
+                            Bring a valid ID, school ID will do for students, and sign a copy of this <a href="https://drive.google.com/open?id=13rgYcP8R_Q9xom77EkysNsv6r3uTXi6u">waiver</a>, for your ID and waiver will serve as your ticket to the event.
+                        </p>
+                    </div>
+
+                    <div class="row container">
+                        <h4 class="header center-align teal-text text-darken-4">Program Flow</h4>
+                        <p class="grey-text text-darken-3 lighten-3">
+                                8:00 AM - 8:15 AM: Registration<br/>
+                                8:15 AM - 8:20 AM: Opening Prayer<br/>
+                                8:20 AM - 8:25 AM: National Anthem<br/>
+                                8:25 AM - 8:30 AM: Opening Remarks<br/>
+                                8:30 AM - 8:35 AM: Intruction of first speaker<br/>
+                                8:35 AM - 9:15 AM: Talk of first speaker + Q&A<br/>
+                                9:15 AM - 9:30 AM: Q & A | Awarding of certificate<br/>
+                                9:30 AM - 9:35 AM: Introduction of second speaker<br/>
+                                9:35 AM - 10:15 AM: Talk of second speaker<br/>
+                                10:15 AM - 10:20 AM: Q & A | Awarding of certificate<br/>
+                                10:20 AM - 10:25 AM: Seminar Post Evaluation<br/>
+                                10:25 AM - 10:30 AM: Closing Remarks<br/>
+                        </p>
+                    </div>
+
+                    <div class="row container">
+                        <h4 class="header center-align teal-text text-darken-4">When and Where</h4>
+
+                        <div id="map" style="width:100%;height:400px;"></div>
+
+                        <p class="grey-text text-darken-3 lighten-3">
+                            FEU - INSTITUTE OF TECHNOLOGY<br>
+                            P. Paredes, Sampaloc, Manila, Metro Manila<br>
+                            8th Floor, FEU TECH Executive lounge<br>
+                            June 2, 2018<br>
+                            8:00 AM - 10:30 AM
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="card-action">
+                    
+                </div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+    body{
+        background-color: #004d40;
+    }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    
+    function myMap() {
+        var mapCanvas = document.getElementById("map");
+        var mapOptions = {
+            center: new google.maps.LatLng(14.6044439,120.9885878),
+            zoom: 18,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+
+        }
+        var map = new google.maps.Map(mapCanvas, mapOptions);
+        var marker1 = new google.maps.Marker({
+            position: new google.maps.LatLng(14.6044439,120.9885878),
+            map: map
+        });
+
+        var infowindow1 = new google.maps.InfoWindow({
+            content:  createInfo('FEU- Institute of Technology'),
+            position: new google.maps.LatLng(14.6044439,120.9885878)
+        });
+
+        // Create information window
+        function createInfo(title) {
+            return '<div class="infowindow"><strong>'+ title +'</strong></div>';
+        }
+    }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhm4LRL9Hod61tNwYifzK3TH6EC-07A_U&callback=myMap"></script>
+{% endblock %}
